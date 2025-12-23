@@ -224,3 +224,6 @@ Thumbs.db
 # Python cache
 __pycache__/
 *.pyc
+
+#task file
+task.text
