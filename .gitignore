@@ -1,0 +1,18 @@
+# VS Code settings
+.vscode/
+
+# Jupyter auto files
+.ipynb_checkpoints/
+
+# Notes & documents
+notes/
+*.pptx
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
