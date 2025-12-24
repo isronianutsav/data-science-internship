@@ -40,9 +40,23 @@ with hands-on practice using Jupyter Notebooks.
 - Pandas DataFrame handling
 - Data Cleaning & EDA
 - Column encoding
-- Jupyter Notebook workflow
+- Jupyter Notebook 
+
+### Day 7 – Matplotlib & Seaborn
+- Introduction to data visualization
+- Importance of visualization in data analysis
+- Line plots
+- Bar charts
+- Histograms
+- Scatter plots
+- Plot customization (titles, labels, legends)
+- Plotting from Pandas DataFrames
+- Basics of Seaborn visualizations
+- Jupyter Notebook–based visualization workflow
+
 
 ---
+
 
 ## 📂 Repository Structure
 - MachineLearning/
@@ -51,7 +65,8 @@ with hands-on practice using Jupyter Notebooks.
 - Python/
 - MatPlotLib/
 - SeaBorn/
-
+- PROJECTS/
+- OS/
 
 ---
 
