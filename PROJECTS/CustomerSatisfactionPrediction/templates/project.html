@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Satisfaction Prediction</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+      padding:20px;
+    }
+    .box{
+      max-width:700px;
+      margin:auto;
+      background:#fff;
+      padding:25px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    h1{text-align:center;color:#333;}
+    p{text-align:center;color:#666;}
+    label{display:block;margin-top:15px;font-weight:bold;}
+    input, select{
+      width:100%;
+      padding:10px;
+      margin-top:6px;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+    button{
+      width:100%;
+      margin-top:25px;
+      padding:12px;
+      background:#c4155d;
+      border-radius:20px;
+      font-size:16px;
+      font-weight:bold;
+      border:none;
+      cursor:pointer;
+    }
+    button:hover{background:#3ea843;}
+    .result{
+      margin-top:25px;
+      padding:15px;
+      background:#e8f0fe;
+      text-align:center;
+      font-size:20px;
+      font-weight:bold;
+      border-radius:8px;
+    }
+    .note{
+      margin-top:10px;
+      font-size:13px;
+      color:#555;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Customer Satisfaction Prediction</h1>
+  <p><b>This project is made with ❤️</b></p>
+
+  <form method="post" action="{{ url_for('predict') }}">
+
+    <!-- Customer Type -->
+    <label>Customer Type</label>
+    <select name="customer_type" required>
+      <option value="">Select</option>
+      <option value="1">Loyal Customer</option>
+      <option value="0">Disloyal Customer</option>
+    </select>
+
+    <!-- Type of Travel -->
+    <label>Type of Travel</label>
+    <select name="type_of_travel" required>
+      <option value="">Select</option>
+      <option value="1">Personal Travel</option>
+      <option value="2">Business Travel</option>
+    </select>
+
+    <!-- Class -->
+    <label>Class</label>
+    <select name="travel_class" required>
+      <option value="">Select</option>
+      <option value="0">Eco Plus</option>
+      <option value="1">Business</option>
+      <option value="2">Eco</option>
+    </select>
+
+    <!-- Flight Distance -->
+    <label>Flight Distance</label>
+    <input type="number" name="flight_distance" required>
+
+    <!-- Inflight Entertainment -->
+    <label>Inflight Entertainment (1–5)</label>
+    <input type="number" name="inflight_entertainment" min="1" max="5" required>
+
+    <!-- Baggage Handling -->
+    <label>Baggage Handling (1–5)</label>
+    <input type="number" name="baggage_handling" min="1" max="5" required>
+
+    <!-- Cleanliness -->
+    <label>Cleanliness (1–5)</label>
+    <input type="number" name="cleanliness" min="1" max="5" required>
+
+    <!-- Departure Delay -->
+    <label>Departure Delay (Minutes)</label>
+    <input type="number" name="departure_delay" required>
+
+    <button type="submit">Predict Satisfaction</button>
+  </form>
+
+  {% if prediction_svc is not none and prediction_knn is not none %}
+  <div class="result">
+    <p>SVC Prediction: {{ prediction_svc }}</p>
+    <p>KNN Prediction: {{ prediction_knn }}</p>
+  </div>
+  {% endif %}
+
+  <div class="note">
+    Output: Satisfied / Not Satisfied
+  </div>
+</div>
+
+</body>
+</html>
