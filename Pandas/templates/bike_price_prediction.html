@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Used Bike Price Calculator</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+      padding:20px;
+    }
+    .box{
+      max-width:600px;
+      margin:auto;
+      background:#fff;
+      padding:25px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    h1{
+      text-align:center;
+      color:#333;
+    }
+    p{
+      text-align:center;
+      color:#666;
+    }
+    label{
+      display:block;
+      margin-top:15px;
+      font-weight:bold;
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      margin-top:6px;
+      box-sizing:border-box;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+
+    button{
+      width:100%;
+      margin-top:25px;
+      padding:12px;
+      background:#4CAF50;
+      border-radius:20px;
+      color:#000;
+      font-size:16px;
+      font-weight:bold;
+      border:none;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#3ea843;
+    }
+
+    .result{
+      margin-top:25px;
+      padding:15px;
+      background:#e8f0fe;
+      text-align:center;
+      font-size:20px;
+      font-weight:bold;
+      border-radius:8px;
+    }
+
+    .note{
+      margin-top:10px;
+      font-size:13px;
+      color:#555;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Used Bike Price Prediction</h1>
+  <p>Estimate your bike’s resale value instantly</p>
+
+  <form method="post" action="{{ url_for('predict') }}">
+
+    <label>Bike Brand</label>
+    <select name="brand_name" required>
+      <option value="">Select Brand</option>
+      <option value="TVS">TVS</option>
+      <option value="Royal Enfield">Royal Enfield</option>
+      <option value="Triumph">Triumph</option>
+      <option value="Yamaha">Yamaha</option>
+      <option value="Honda">Honda</option>
+      <option value="Hero">Hero</option>
+      <option value="Bajaj">Bajaj</option>
+      <option value="Suzuki">Suzuki</option>
+      <option value="Benelli">Benelli</option>
+      <option value="KTM">KTM</option>
+      <option value="Mahindra">Mahindra</option>
+      <option value="Kawasaki">Kawasaki</option>
+      <option value="Ducati">Ducati</option>
+      <option value="Hyosung">Hyosung</option>
+      <option value="Harley-Davidson">Harley-Davidson</option>
+      <option value="Jawa">Jawa</option>
+      <option value="BMW">BMW</option>
+      <option value="Indian">Indian</option>
+      <option value="Rajdoot">Rajdoot</option>
+      <option value="LML">LML</option>
+      <option value="Yezdi">Yezdi</option>
+      <option value="MV">MV</option>
+      <option value="Ideal">Ideal</option>
+    </select>
+
+    <label>Owner Type</label>
+    <select name="owner" required>
+      <option value="">Select Owner</option>
+      <option value="1">First Owner</option>
+      <option value="2">Second Owner</option>
+      <option value="3">Third Owner</option>
+      <option value="4">Fourth Owner Or More</option>
+    </select>
+
+    <label>Bike Age (Years)</label>
+    <input type="number" name="age" placeholder="e.g. 5" required>
+
+    <label>Engine Power (CC)</label>
+    <input type="number" name="power" placeholder="e.g. 350" required>
+
+    <label>Kilometers Driven</label>
+    <input type="number" name="kms_driven" placeholder="e.g. 25000" required>
+
+    <button type="submit">Calculate Price</button>
+  </form>
+
+  {% if prediction %}
+  <div class="result">
+    Estimated Price: {{ prediction }}
+  </div>
+  {% endif %}
+
+  <div class="note">
+    Price may vary based on condition, location & market demand.
+  </div>
+</div>
+
+</body>
+</html>
